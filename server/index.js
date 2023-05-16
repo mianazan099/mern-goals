@@ -8,6 +8,7 @@ connectDB();
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.use("/api/goals", require("./routes/goalRoute"));
 app.use("/api/users", require("./routes/userRoute"));

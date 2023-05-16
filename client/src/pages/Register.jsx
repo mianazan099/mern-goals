@@ -13,12 +13,10 @@ function Register() {
     password: "",
     password2: "",
   });
-
   const { name, email, password, password2 } = formData;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
@@ -36,14 +34,14 @@ function Register() {
   const onChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: [e.target.value],
+      [e.target.name]: e.target.value,
     }));
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    if (password.toString() !== password2.toString()) {
+    console.log(formData);
+    if (password !== password2) {
       toast.error("Password do not match");
     } else {
       const userData = {

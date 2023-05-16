@@ -12,12 +12,13 @@ function Login() {
   const onChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: [e.target.value],
+      [e.target.name]: e.target.value,
     }));
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
   };
 
   return (
